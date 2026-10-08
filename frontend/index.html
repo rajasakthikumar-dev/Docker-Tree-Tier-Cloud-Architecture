@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Docker 3-Tier Architecture</title>
+</head>
+<body>
+    <h1>Docker Compose 3-Tier Architecture</h1>
+
+    <h3>Tier 1: Frontend - Nginx</h3>
+    <h3>Tier 2: Backend - Python Flask</h3>
+    <h3>Tier 3: Database - MySQL</h3>
+
+    <button onclick="testBackend()">Test Backend and Database</button>
+
+    <p id="result">Click the button to test the application.</p>
+
+    <script>
+        async function testBackend() {
+            const result = document.getElementById("result");
+
+            try {
+                const response = await fetch("/api");
+                const data = await response.text();
+
+                result.textContent = data;
+            } catch (error) {
+                result.textContent = "Unable to connect to the backend.";
+            }
+        }
+    </script>
+</body>
+</html>
